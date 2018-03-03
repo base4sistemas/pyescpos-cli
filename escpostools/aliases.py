@@ -78,3 +78,11 @@ def update_alias(alias_id, impl, conn, settings):
                     'conn': conn,
                     'settings': settings,}})
     save_aliases(data)
+
+
+def resolve_alias(alias_id):
+    alias = get_alias(alias_id)
+    impl_type = commons.import_type_from(alias['impl'])
+    conn_type = commons.import_type_from(alias['conn'])
+    conn = conn_type.create(alias['settings'])
+    return impl_type(conn)
