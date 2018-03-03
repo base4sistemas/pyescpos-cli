@@ -33,7 +33,7 @@ def read(*filenames, **kwargs):
 
 
 def read_version():
-    content = read(os.path.join('escpos', '__init__.py'))
+    content = read(os.path.join('escpostools', '__init__.py'))
     return re.search(r"__version__ = '([^']+)'", content).group(1)
 
 

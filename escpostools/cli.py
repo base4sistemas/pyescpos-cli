@@ -35,7 +35,6 @@ class Context(object):
 
     def __init__(self):
         self.verbose = False
-        self.home = os.getcwd()
 
     def log(self, msg, *args):
         """Logs a message to stderr."""
@@ -69,7 +68,7 @@ class PyESCPOSCLI(click.MultiCommand):
                 name = name.encode('ascii', 'replace')
             mod = __import__('escpostools.commands.cmd_' + name, None, None, ['cli'])
         except ImportError:
-            return
+            raise RuntimeError('Cannot import command name: {!r}'.format(name))
         return mod.cli
 
 
@@ -77,5 +76,15 @@ class PyESCPOSCLI(click.MultiCommand):
 @click.option('-v', '--verbose', is_flag=True, help='Enables verbose mode.')
 @pass_context
 def cli(ctx, verbose):
-    """PyESCPOS Command Line Interface (development and testing utility)."""
+    """PyESCPOS Command Line Interface (development and testing utility).
+
+    To be useful, you must assign at least one alias with an implementation and
+    a connection method, thus you can easily run tests and arbitrary scripts
+    against one or more implementations. See help for "assign" and other
+    commands, for example:
+
+    \b
+    $ escpos assign --help
+
+    """
     ctx.verbose = verbose
