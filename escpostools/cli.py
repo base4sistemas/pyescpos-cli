@@ -4,6 +4,11 @@
 #
 # Copyright 2018 Base4 Sistemas Ltda ME
 #
+# PyESCPOS-CLI is based on Armin Roacher's "complex example" from the "click
+# project", which can be found at https://github.com/pallets/click/.
+#
+# Copyright (c) 2014-2018 by Armin Ronacher. All rights reserved.
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
