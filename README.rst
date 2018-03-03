@@ -39,4 +39,4 @@ For this CLI development, install as:
     $ pip install --editable .
 
 
-.. _`PyESCPOS`: 'https://github.com/base4sistemas/pyescpos/'
+.. _`PyESCPOS`: https://github.com/base4sistemas/pyescpos/
